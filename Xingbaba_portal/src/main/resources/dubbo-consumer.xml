@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/task
+   		http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+		
+		<!--Dubbo服务消费方-->
+	<!--1. 名称 计算机 区别 保持唯一 -->
+	<dubbo:application name="xingbaba-portal"/>
+
+	<!--2.设置注册中心地址  即：zookeeper在哪里  也可用redis等待作为注册中心-->
+	<!--集群式的配置方式，IP用逗号隔开-->
+	<!--<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/>-->
+	<!--<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>-->
+	<!--由于当前练习项目，为提高性能，这里就配置服务器提供方不去dubbo取f服务地址了-->
+	<dubbo:registry address="N/A" check="false"/> <!--check="false" 设置不检查，即服务器启动是不去注册中心查看是否存在服务接口，因为练习开发,服务提供方设置了不注册而服务消费放配置了不通过dubbo获取实现类接口-->
+
+
+	<!--3. 调用此接口的实现类-->     <!--这里的id值是 CenterController类中 @Autowired注入的TestTbService对象-->
+	<!--超时时间设置 timeout="1000" 默认值1000毫秒 直接这里写是局部的，这里可以用全局设置-->
+	<!--<dubbo:reference interface="com.lyb.core.service.TestTbService" id="testTbService" />--><!--通过dubbo注册器提供链接地址时的配置方式-->
+	<dubbo:reference interface="com.lyb.core.service.TestTbService" id="testTbService" url="dubbo://127.0.0.1:20881"/>
+	<dubbo:reference interface="com.lyb.core.service.product.BrandService" id="brandService" url="dubbo://127.0.0.1:20881"/>
+	<dubbo:reference interface="com.lyb.core.service.product.UploadService" id="uploadService" url="dubbo://127.0.0.1:20881"/>
+	<dubbo:reference interface="com.lyb.core.service.product.ProductService" id="productService" url="dubbo://127.0.0.1:20881"/>
+	<dubbo:reference interface="com.lyb.core.service.product.SkuService" id="skuService" url="dubbo://127.0.0.1:20881"/>
+	<!-- 服务换了  service-solr  -->
+	<dubbo:reference interface="com.lyb.core.service.SearchService" id="searchService" url="dubbo://127.0.0.1:20882"/>
+	<!-- 服务换了  service-cms  -->
+	<dubbo:reference interface="com.lyb.core.service.CmsService" id="cmsService" url="dubbo://127.0.0.1:20883"/>
+	<!--cob中SessionProvider-->
+	<dubbo:reference interface="com.lyb.core.service.user.SessionProvider" id="sessionProvider" url="dubbo://127.0.0.1:20884"/>
+	<dubbo:reference interface="com.lyb.core.service.user.BuyerService" id="buyerService" url="dubbo://127.0.0.1:20884"/>
+    <!--为联系方便，直接添加服务提供方链接地址 url，不通过dubbo获取-->
+
+	<!--全局设置超时时间 对所有接口实现类都通用，就不用每个都设置 设置超时时间为10分钟-->
+	<!--超时时间作用是 当消费方通过dubbo获取到的接口提供方的地址无法链接是自动断开，重新找dubbbo获取新的实现类接口-->
+	<dubbo:consumer timeout="600000" check="false"/> <!--全局 check="false" 设置所有接口实现类不检查dubbo注册中心是否有提供方服务-->
+	<!--dubbo:consumer 设置的全局参数只对 dubbo:reference 表签定义的接口实现类有效-->
+
+</beans>

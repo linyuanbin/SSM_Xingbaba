@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Xingbaba_service_cms:war">
+    <output-path>$PROJECT_DIR$/Xingbaba_service_cms/target</output-path>
+    <root id="archive" name="xingbaba_service_cms.war">
+      <element id="artifact" artifact-name="Xingbaba_service_cms:war exploded" />
+    </root>
+  </artifact>
+</component>

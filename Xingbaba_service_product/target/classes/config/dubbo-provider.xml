@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/task
+   		http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo        
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+		
+		<!--Dubbo服务提供方-->
+	<!--1. 名称 计算机 区别 保持唯一 -->
+	<dubbo:application name="xingbaba-service-product"/>
+
+	<!--2.设置注册中心地址  即：zookeeper在哪里  也可用redis等待作为注册中心-->
+	<!--集群式的配置方式，IP用逗号隔开-->
+	<!--<dubbo:registry address="192.168.200.128:2181,192.168.200.129:2181,192.168.200.130:2181" protocol="zookeeper"/>-->
+	<!--单机配置方式：-->
+	<!--<dubbo:registry address="192.168.200.128:2181" protocol="zookeeper"/>-->
+	<!--由于当前练习项目，为提高性能，这里就配置服务器提供方不去dubbo注册了-->
+	<dubbo:registry address="N/A" check="false"/>
+
+	<!--3. dubbo://192.168.xx.xx:20880 默认值(这里用到的不是http或rim,而是dubbo协议,name处协议名称)   配置提供服务的端口号-->
+	<dubbo:protocol  name="dubbo" port="20881" />
+
+	<!--4. 暴露实现类-->
+	<!--由于使用的是注解式开发所有这里testTbService进行 ref方式注入时需要在实现类名上@Service() 括号中的值“testTbService” 如:@Service("testTbService")-->
+	<dubbo:service interface="com.lyb.core.service.TestTbService" ref="testTbService"/>
+	<dubbo:service interface="com.lyb.core.service.product.BrandService" ref="brandService"/>
+	<dubbo:service interface="com.lyb.core.service.product.UploadService" ref="uploadService"/>
+	<dubbo:service interface="com.lyb.core.service.product.ProductService" ref="productService"/>
+	<dubbo:service interface="com.lyb.core.service.product.SkuService" ref="skuService"/>
+
+</beans>

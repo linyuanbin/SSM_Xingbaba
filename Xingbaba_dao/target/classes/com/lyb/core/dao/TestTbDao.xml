@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyb.core.dao.TestTbDao">
+
+    <!-- 由于前面设置了别名，所以这里的 parameterType直接接实例类名就行，否则需要加上完整包名    这里没有返回值-->
+    <insert id="insertTestTb" parameterType="TestTb">
+        insert into testtb
+        (id,name,birthday)
+        values
+        (#{id},#{name},#{birthday})
+    </insert>
+
+</mapper>

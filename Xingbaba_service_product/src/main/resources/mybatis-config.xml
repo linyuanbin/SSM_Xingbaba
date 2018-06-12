@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- setting 延迟加载  二级缓存 （不用）   本项目使用分布缓存 -->
+
+<!-- 别名 -->
+<typeAliases>
+<package name="com.lyb.core.bean"/>
+</typeAliases>
+
+<!-- mapper 位置配置        由于在mybatis.xml中配置的是包扫描，所有这里不需要配置
+<mappers>
+</mappers>
+-->
+
+
+</configuration>

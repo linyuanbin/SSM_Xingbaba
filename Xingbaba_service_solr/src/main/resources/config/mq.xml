@@ -1,0 +1,71 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/task
+   		http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo        
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+		<!--消息接收方-->
+		<!-- 配置 ActiveMQ -->
+
+	<!--1.工厂  原厂商提供-->
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" >
+		<!--设置链接URL-->  <!--浏览器访问地址： http://192.168.200.128:8161 -->
+		<property name="brokerURL" value="tcp://192.168.200.128:61616"/>
+		<!--用户名-->
+		<property name="userName" value="admin"/>
+		<!--密码-->
+		<property name="password" value="admin"/>
+	</bean>
+
+	<!--2.工厂连接池-->
+	<bean id="pooledConnectionFactoryBean" class="org.apache.activemq.pool.PooledConnectionFactoryBean">
+		<property name="connectionFactory" ref="activeMQConnectionFactory"/>
+		<!--最大连接数-->
+		<property name="maximumActive" value="2"/>
+	</bean>
+
+	<!--3.Spring管理以上工厂-->
+	<bean id="singleConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+		<property name="targetConnectionFactory" ref="pooledConnectionFactoryBean"/>
+	</bean>
+
+	<!--4.获取jmdTemplate 由spring提供-->
+<!--	<bean class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="singleConnectionFactory"/>
+		&lt;!&ndash;指定默认目标   管道名称&ndash;&gt;
+		<property name="defaultDestinationName" value="productId"/>
+ 	</bean>-->
+
+	<!--处理消息的类 自定义-->
+	<bean id="customMessageListener" class="com.lyb.core.message.CustomMessageListener">
+	</bean>
+
+	<!--Spring 监听器 监听ActiveMQ中是否有消息-->
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<!--链接上ActiveMQ-->
+		<property name="connectionFactory" ref="singleConnectionFactory"/>
+		<!--指定监听的目标-->
+		<property name="destinationName" value="productId"/>
+		<!--监听到消息后有个类处理此信息  处理信息的类-->
+		<property name="messageListener" ref="customMessageListener"/>
+		<!--默认(false)是点对点通信方式 改成true 就是 发布、订阅 模式-->
+		<property name="pubSubDomain" value="true"/>
+	</bean>
+
+
+
+</beans>

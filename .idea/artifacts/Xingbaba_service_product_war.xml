@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Xingbaba_service_product:war">
+    <output-path>$PROJECT_DIR$/Xingbaba_service_product/target</output-path>
+    <root id="archive" name="xingbaba_service_product.war">
+      <element id="artifact" artifact-name="Xingbaba_service_product:war exploded" />
+    </root>
+  </artifact>
+</component>

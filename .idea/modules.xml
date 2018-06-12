@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SSM_Xingbaba.iml" filepath="$PROJECT_DIR$/SSM_Xingbaba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_common/Xingbaba_common.iml" filepath="$PROJECT_DIR$/Xingbaba_common/Xingbaba_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_console/Xingbaba_console.iml" filepath="$PROJECT_DIR$/Xingbaba_console/Xingbaba_console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_dao/Xingbaba_dao.iml" filepath="$PROJECT_DIR$/Xingbaba_dao/Xingbaba_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_interface/Xingbaba_interface.iml" filepath="$PROJECT_DIR$/Xingbaba_interface/Xingbaba_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_login/Xingbaba_login.iml" filepath="$PROJECT_DIR$/Xingbaba_login/Xingbaba_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_pojo/Xingbaba_pojo.iml" filepath="$PROJECT_DIR$/Xingbaba_pojo/Xingbaba_pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_portal/Xingbaba_portal.iml" filepath="$PROJECT_DIR$/Xingbaba_portal/Xingbaba_portal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_service_cms/Xingbaba_service_cms.iml" filepath="$PROJECT_DIR$/Xingbaba_service_cms/Xingbaba_service_cms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_service_cob/Xingbaba_service_cob.iml" filepath="$PROJECT_DIR$/Xingbaba_service_cob/Xingbaba_service_cob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_service_product/Xingbaba_service_product.iml" filepath="$PROJECT_DIR$/Xingbaba_service_product/Xingbaba_service_product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xingbaba_service_solr/Xingbaba_service_solr.iml" filepath="$PROJECT_DIR$/Xingbaba_service_solr/Xingbaba_service_solr.iml" />
+    </modules>
+  </component>
+</project>
