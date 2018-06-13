@@ -60,7 +60,6 @@ public class BrandServiceImpl implements BrandService{
         //分页展示   pagination工具类提供的自动分页操作
         String url="/brand/list.do";
         pagination.pageView(url,params.toString());
-
     return pagination;
     }
 
@@ -96,6 +95,11 @@ public class BrandServiceImpl implements BrandService{
     @Override
     public void deletes(Long[] ids) {
         brandDao.deletes(ids);
+    }
+
+    @Override
+    public void delete(Long id) {
+        brandDao.delete(id);
     }
 
     @Override

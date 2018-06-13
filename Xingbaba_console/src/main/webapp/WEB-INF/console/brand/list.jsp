@@ -26,6 +26,18 @@
 			$("#jvForm").attr("method","post").submit();
 
 		}
+
+		//删除单条
+		function bDelete(id,name,isDisplay,pageNo){
+
+			//你确定删除吗？
+			if(!confirm("你确定删除吗？")){
+				return;
+			}
+
+			$("#jvForm").attr("action","/brand/delete.do?id="+id+"&name=" + name + "&isDisplay=" + isDisplay + "&pageNo=" + pageNo);
+			$("#jvForm").attr("method","post").submit();
+		}
 	</script>
 
 </head>
@@ -74,7 +86,7 @@
 					<c:if test="${brand.isDisplay == 0 }">否</c:if>
 				</td>
 				<td align="center">
-					<a class="pn-opt" href="/brand/toEdit.do?id=${brand.id }">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
+					<a class="pn-opt" href="/brand/toEdit.do?id=${brand.id }">修改</a> | <a class="pn-opt" onclick="bDelete('${brand.id}','${name}','${isDisplay }','${pagination.pageNo }');">删除</a>
 				</td>
 			</tr>
 		</c:forEach>

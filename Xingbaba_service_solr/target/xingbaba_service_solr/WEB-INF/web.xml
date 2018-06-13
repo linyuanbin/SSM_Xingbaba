@@ -13,7 +13,7 @@
 
   <!-- 监听器 -->
   <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class><!--容器启动时自动专配ApplicationContext-->
   </listener>
 
 </web-app>

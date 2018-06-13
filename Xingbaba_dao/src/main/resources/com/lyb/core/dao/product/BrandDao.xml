@@ -76,6 +76,15 @@
         </where>
     </update>
 
+    <delete id="delete" parameterType="Long">
+
+        delete from bbs_brand
+        <where>
+            id=#{id}
+        </where>
+
+    </delete>
+
     <!--删除 (1，2，3，4，5) -->
     <delete id="deletes" parameterType="Long">
 
@@ -89,6 +98,7 @@
       </where>
 
     </delete>
+
 
     <!--添加-->
     <insert id="insertBrand" parameterType="Brand">

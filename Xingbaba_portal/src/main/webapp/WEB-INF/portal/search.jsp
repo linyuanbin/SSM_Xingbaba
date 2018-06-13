@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>商品搜索 - 新巴巴运动商城</title>
+<title>商品搜索 - L商城</title>
 <link rel="stylesheet" type="text/css" href="/css/base.css" media="all" />
 <link type="text/css" rel="stylesheet" href="/css/search.css">
 <script type="text/javascript" src="/js/jquery-1.6.4.js"></script>
@@ -53,7 +53,7 @@ function login(){
 		<div class="cb-gift-trigger">
 			<i class="ico-gift"></i>
 			<span class="txt">
-				<a href="javascript:;" >新巴巴帮您选礼物</a>
+				<a href="javascript:;" >L君帮您选礼物</a>
 			</span>
 		</div>
 		<div class="cb-gift-main">

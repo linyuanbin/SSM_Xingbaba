@@ -206,6 +206,7 @@ public class CartController {
     //提交订单
     @RequestMapping(value = "/buyer/submitOrder") //进入这里的一定是已经登录的
     public String submitOrder(Order order,Model model, HttpServletRequest request, HttpServletResponse response){
+        System.out.println("5656"+order.toString());
         String userName = sessionProvider.getAttributeForUserName(RequestUtils.getCSESSIONID(request, response));
         buyerService.insertOrder(order,userName);
         return "success";

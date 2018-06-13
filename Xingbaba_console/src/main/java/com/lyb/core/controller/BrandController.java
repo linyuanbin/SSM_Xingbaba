@@ -35,8 +35,8 @@ public class BrandController {
     }
 
     @RequestMapping(value="/brand/list2.do")
-    public String list2(String name, Integer isDisplay, Integer pageNo, Model model){
-        name="";pageNo=0;
+    public String list2(String name, Integer isDisplay, Integer pageNo, Model model){ //在没有条件是使用避免添加后使用
+        name="";pageNo=1;
         isDisplay=1;
         Pagination pagination=brandService.selectPaginationByQuery(name,isDisplay,pageNo);
         model.addAttribute("pagination",pagination);
@@ -53,6 +53,7 @@ public class BrandController {
     @RequestMapping(value="/brand/toEdit.do")
     public String toEdit(Long id, Model model){
         Brand brand=brandService.selectBrandById(id);
+        System.out.println(brand.toString());
         model.addAttribute("brand",brand);
         return "brand/edit";
     }
@@ -70,14 +71,21 @@ public class BrandController {
         return "/brand/add";
     }
 
-    //去添加
+    //添加品牌到数据库
     @RequestMapping(value="/brand/add.do")
     public String add(Brand brand,Model model){
-        System.out.println(brand.toString());
+        //System.out.println(brand.toString());
         brandService.insertBrand(brand);
         return "forward:/brand/list2.do";
     }
 
+    //删除单条
+    @RequestMapping(value="/brand/delete.do")
+    public String delete(Long id){//,String name,Integer isDisplay,Integer pageNo
+         System.out.println("bid="+id);
+        brandService.delete(id);
+        return "forward:/brand/list.do"; //forward直接转发到public String list，括号中的name、isDisplay和pageNo可以省略不写,参数值也会传到brand/list.do
+    }
 
     //批量删除
     @RequestMapping(value="/brand/deletes.do")

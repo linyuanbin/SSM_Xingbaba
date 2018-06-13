@@ -142,7 +142,6 @@ public class StaticPageServiceImpl implements StaticPageService,ServletContextAw
         }
     }
 
-
     //获取路径
     public String getPath(String name){
         return servletContext.getRealPath(name);

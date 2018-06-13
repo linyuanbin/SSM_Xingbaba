@@ -5,15 +5,18 @@
 <configuration>
 <!-- setting 延迟加载  二级缓存 （不用）   本项目使用分布缓存 -->
 
+    <!--
+     通过package, 可以直接指定package的名字， mybatis会自动扫描你指定包下面的javabean,
+     并且默认设置一个别名，默认的名字为： javabean 的首字母小写的非限定类名来作为它的别名。
+     也可在javabean 加上注解@Alias 来自定义别名， 例如： @Alias(user)
+     <package name="com.dy.entity"/>
+      -->
 <!-- 别名 -->
 <typeAliases>
 <package name="com.lyb.core.bean"/>
 </typeAliases>
-
 <!-- mapper 位置配置        由于在mybatis.xml中配置的是包扫描，所有这里不需要配置
 <mappers>
 </mappers>
 -->
-
-
 </configuration>

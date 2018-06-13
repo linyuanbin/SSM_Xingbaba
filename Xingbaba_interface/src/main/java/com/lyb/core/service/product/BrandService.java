@@ -16,6 +16,8 @@ public interface BrandService {
     public Brand selectBrandById(Long id);
     //通过id修改
     public void updateBrandById(Brand brand);
+    //删除单条
+    public void delete(Long id);
     //批量删除
     public void deletes(Long[] ids);
     //查询结果集
@@ -25,6 +27,7 @@ public interface BrandService {
 
     //添加品牌
     public void insertBrand(Brand brand);
+
 
 
 }

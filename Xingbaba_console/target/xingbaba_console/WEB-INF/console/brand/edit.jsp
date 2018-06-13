@@ -54,7 +54,7 @@
 					<td width="20%" class="pn-flabel pn-flabel-h"></td>
 						<td width="80%" class="pn-fcontent">
 						<img width="100" height="100" id="allUrl" src="${brand.imgUrl}"/>
-						<input type="hidden" name="imgUrl" id="imgUrl"/>
+						<input type="hidden" name="imgUrl" id="imgUrl" value="${brand.imgUrl}"/>
 						<input type="file" name="pic" onchange="uploadPic()"/>
 					</td>
 				</tr>

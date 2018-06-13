@@ -52,7 +52,6 @@
 
 	<!--处理消息的类 自定义-->
 	<bean id="customMessageListener" class="com.lyb.core.message.CustomMessageListener">
-
 	</bean>
 
 	<!--Spring 监听器 监听ActiveMQ中是否有消息-->

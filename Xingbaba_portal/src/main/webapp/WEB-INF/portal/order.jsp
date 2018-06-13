@@ -4,9 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-<title>订单结算页 -新巴巴商城</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>订单结算页 -L商城</title>
 <!--结算页面样式-->
 <link rel="stylesheet" type="text/css" href="/css/base.css" media="all" />
 <script type="text/javascript" src="/js/jquery-1.6.4.js"></script>
@@ -20,7 +21,7 @@
 	<!--shortcut end-->
 	<div class="w w1 header clearfix">
 		<div id="logo">
-			<a href="/"><img src="/images/XBB2.png" alt="新巴巴商城"></a> <a
+			<a href="/"><img src="/images/XBB2.png" alt="L商城"></a> <a
 				href="javascript:;" class="link2"><b></b>"结算页"</a>
 		</div>
 		<div class="stepflex" id="#sflex03">
@@ -80,7 +81,7 @@
 														<div class="addr-detail">
 															<span title="范冰冰 " class="addr-name" limit="6">范冰冰
 															</span> <span class="addr-info" limit="45">北京 海淀区 西三旗
-																XXXXXXXXX</span> <span class="addr-tel">158***888888</span>
+																XXXXXXXXX</span> <span class="addr-tel">131****5665</span>
 														</div>
 														<div class="op-btns" consigneeid="137629184">
 															<a href="#none" class="ftx-05 setdefault-consignee"
