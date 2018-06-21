@@ -71,7 +71,7 @@ public class SkuServiceImpl implements SkuService {
             for(BuyerItem buyerItem:items){
                 //保存到redis中 用hash容器  先判断商品是否已经存在用户redis购物车中
                 if(jedis.hexists("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()))){
-                    //已经存在直接追加就行hincrBy
+                    //已经存在直接追加就行hi  ncrBy
                     jedis.hincrBy("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()),buyerItem.getAmount());
                 }else { //redis中不存在，直接添加
                     jedis.hset("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()),String.valueOf(buyerItem.getAmount()));

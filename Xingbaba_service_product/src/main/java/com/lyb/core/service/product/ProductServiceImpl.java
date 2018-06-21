@@ -143,7 +143,7 @@ public class ProductServiceImpl implements ProductService{
             productDao.updateByPrimaryKeySelective(product);
 
             //发送消息到ActiveMQ中 brandId
-            //mq.xml中指定了默认目标，这里发送消息也可以重新知道目标
+            //mq.xml中指定了默认目标，这里发送消息也可以重新指定目标
             //jmsTemplate.send("brandId",messageCreator);
             jmsTemplate.send(new MessageCreator() {
                 @Override

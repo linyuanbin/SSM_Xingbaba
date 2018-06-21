@@ -9,7 +9,7 @@
 		$.ajax({
 			url : "http://localhost:8081/isLogin.aspx",
 			type : "post",
-			dataType : "jsonp", //这里用jsonp 通过ajax接收来自http://localhost:8081/isLogin.aspx的返回值，实现跨源（跨域）
+			dataType : "json", //这里用jsonp 通过ajax接收来自http://localhost:8081/isLogin.aspx的返回值，实现跨源（跨域）
 			success : function(data){
 				//判断 0 1
 				//alert(data);

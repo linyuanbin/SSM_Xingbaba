@@ -25,7 +25,7 @@ public class CostomInterceptor implements HandlerInterceptor{
         String userName = sessionProvider.getAttributeForUserName(RequestUtils.getCSESSIONID(request, response));
         if(null == userName){
             //不放行
-            //重定向会登录界面
+            //重定向回登录界面
             response.sendRedirect("http://localhost:8081/login.aspx?returnUrl=http://localhost:8082"); //returnUrl 设置登录后是返回首页还是购物车界面
             return false;
         }

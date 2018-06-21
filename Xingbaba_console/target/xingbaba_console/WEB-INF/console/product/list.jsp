@@ -39,7 +39,7 @@
 	<select name="brandId">
 		<option value="">请选择品牌</option>
 		<c:forEach items="${brands}" var="brand">
-		<option value="${brand.id}"  <c:if test="${brandId == brand.id}">selected="selected"</c:if>>${brand.name}</option>
+		<option value="${brand.id}" <c:if test="${brandId == brand.id}">selected="selected"</c:if>>${brand.name}</option>
 		</c:forEach>
 	</select>
 	<select name="isShow">

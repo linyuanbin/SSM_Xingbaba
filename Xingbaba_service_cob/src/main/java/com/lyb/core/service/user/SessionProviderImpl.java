@@ -15,7 +15,7 @@ public class SessionProviderImpl implements SessionProvider{
         this.exp = exp;
     }
     @Override
-    public void setAttributeForUserName(String name, String value) { // name：CSESSIONID    value:是用户名
+    public void setAttributeForUserName(String name, String value) { // name：CSESSIONID的值    value:是用户名
         //保存用户名到redis
         //key : CSESSIONID:USER_NAME == name
         jedis.set(name+":"+ Constants.USER_NAME,value);
@@ -23,7 +23,7 @@ public class SessionProviderImpl implements SessionProvider{
     }
 
     @Override
-    public String getAttributeForUserName(String name) {
+    public String getAttributeForUserName(String name) { //name=CSESSIONID的值
         String value = jedis.get(name + ":" + Constants.USER_NAME);
         if(null!= value){
             jedis.expire(name+":"+ Constants.USER_NAME,60*exp); //设置key在redis中的有效时间 单位是秒
