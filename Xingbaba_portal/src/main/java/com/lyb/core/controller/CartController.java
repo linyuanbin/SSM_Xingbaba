@@ -56,7 +56,7 @@ public class CartController {
             for(Cookie cookie:cookies){
                 //获取购物车对象
                 if(Constants.BUYER_CART.equals(cookie.getName())){
-                    buyerCar=om.readValue(cookie.getValue(),BuyerCar.class); //将购物车对象Json数据转换成购物车对象
+                    buyerCar=om.readValue(cookie.getValue(),BuyerCar.class); //将购物车对象的Json数据转换成购物车对象
                     break;
                 }
             }
@@ -67,7 +67,7 @@ public class CartController {
         if(null == buyerCar) {
             buyerCar = new BuyerCar();
         }
-        //5.将当前商品追加cookie中的商品到购物车 不来等没登陆都需要
+        //5.将当前商品追加cookie中的商品到购物车 不管登没登陆都需要
         Sku sku=new Sku();
         //skuId
         sku.setId(skuId);
@@ -77,7 +77,7 @@ public class CartController {
         buyerItem.setAmount(amount);
         buyerCar.addBuyerItem(buyerItem);
         StringWriter sw=new StringWriter();
-        om.writeValue(sw,buyerCar); //讲对象通过流方式转成Json格式
+        om.writeValue(sw,buyerCar); //将对象通过流方式转成Json格式
 
         String userName = sessionProvider.getAttributeForUserName(RequestUtils.getCSESSIONID(request, response));
         //判断用户是否登录

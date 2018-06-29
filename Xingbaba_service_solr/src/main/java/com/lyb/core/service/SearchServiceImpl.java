@@ -71,7 +71,7 @@ public class SearchServiceImpl implements SearchService{
         solrQuery.setHighlightSimplePost("</span>");
 
         //拍排序
-        solrQuery.addSort("price", SolrQuery.ORDER.asc);//递增顺序
+        solrQuery.addSort("price", SolrQuery.ORDER.asc);//递增顺序  desc递减
         //分页
         solrQuery.setStart(productQuery.getStartRow()); //设置从solr查询的开始行
         solrQuery.setRows(productQuery.getPageSize());  // 设置从solr中查询每页条数
@@ -129,7 +129,7 @@ public class SearchServiceImpl implements SearchService{
     private ProductDao productDao;
     @Autowired
     private SkuDao skuDao;
-    //上架是时保存商品到solr
+    //上架时保存商品到solr
     public void insertProductToSolr(Long id){
         //TODO 保存商品信息到solr服务器
         SolrInputDocument doc=new SolrInputDocument();

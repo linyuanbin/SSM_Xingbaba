@@ -142,7 +142,7 @@ function addCart(){
 			<div class="clearfix">
 				<ul id="summary">
 					<li id="summary-price">
-						<div class="dt">巴&nbsp;巴&nbsp;价：</div>
+						<div class="dt">L&nbsp;君&nbsp;价：</div>
 						<div class="dd">
 							<strong class="p-price" id="bbs-price">￥888.00</strong> <a
 								id="notice-downp" href="#none" target="_blank">(降价通知)</a>
@@ -180,7 +180,7 @@ function addCart(){
 					</li>
 					<li id="summary-service" class="hide">
 						<div class="dt">服&#x3000;&#x3000;务：</div>
-						<div class="dd">由 新巴巴 发货并提供售后服务。</div>
+						<div class="dd">由 L君 发货并提供售后服务。</div>
 					</li>
 					<li id="summary-tips" class="hide">
 						<div class="dt">温馨提示：</div>

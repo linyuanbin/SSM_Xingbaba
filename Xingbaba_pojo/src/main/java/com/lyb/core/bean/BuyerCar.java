@@ -5,6 +5,7 @@ import com.lyb.core.bean.user.Buyer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -53,6 +54,7 @@ public class BuyerCar implements Serializable{
         }
         return result;
     }
+
 
     //计算商品费用
     @JsonIgnore

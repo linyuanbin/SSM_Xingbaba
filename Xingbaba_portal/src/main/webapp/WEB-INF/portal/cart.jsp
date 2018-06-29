@@ -16,7 +16,7 @@
 <link type="text/css" rel="stylesheet" href="/css/a_002.css">
 <link type="text/css" rel="stylesheet" href="/css/a_003.css">
 <link href="/css/purchase.2012.css?v=201410141639" rel="stylesheet" type="text/css">
-<title>我的购物车 - 新巴巴商城</title>
+<title>我的购物车 - L商城</title>
 <script type="text/javascript" src="/js/jquery-1.6.4.js"></script>
 
 <script type="text/javascript">
@@ -67,7 +67,7 @@ function trueBuy(){
 							for="toggle-checkboxes_up">全选</label>
 					</div>
 					<div class="column t-goods">商品</div>
-					<div class="column t-price">新巴巴价</div>
+					<div class="column t-price">L君价</div>
 					<div class="column t-promotion">优惠</div>
 					<div class="column t-inventory">库存</div>
 					<div class="column t-quantity">数量</div>

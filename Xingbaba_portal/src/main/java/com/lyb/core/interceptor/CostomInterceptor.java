@@ -23,10 +23,23 @@ public class CostomInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //必须登录
         String userName = sessionProvider.getAttributeForUserName(RequestUtils.getCSESSIONID(request, response));
+        //System.out.println("--------"+userName);
         if(null == userName){
             //不放行
             //重定向回登录界面
-            response.sendRedirect("http://localhost:8081/login.aspx?returnUrl=http://localhost:8082"); //returnUrl 设置登录后是返回首页还是购物车界面
+            /*request.getRemoteAddr()获取ip
+            request.getRemotePort()获取端口号
+            request.getServletPath()获取请求地址*/
+            String rIp=request.getRemoteAddr();
+            //String rPort=String.valueOf(request.getRemotePort());
+            //String reH=request.getRemoteHost();
+            //String re=request.getServletPath();
+
+            String servicePort=String.valueOf(request.getServerPort());
+            String returnUrl="http://localhost"+":"+servicePort+"/toCart";
+            //String returnUrl="http://"+rIp+":"+servicePort+"/toCart"; //本地部署是rIp是127.0.0.1，检测不是和localhost不是一个域，所有不能检测到用户已经登录会出问题
+            System.out.print("returnUrl"+returnUrl);   //http://localhost:8082/toCart
+            response.sendRedirect("http://localhost:8081/login.aspx?returnUrl="+returnUrl); //returnUrl 设置登录后是返回首页还是购物车界面
             return false;
         }
         //放行

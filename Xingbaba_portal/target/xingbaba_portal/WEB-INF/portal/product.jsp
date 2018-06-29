@@ -261,7 +261,7 @@ function addCart(){
 						<ul class="lh">
 							<c:forEach items="${product.images}" var="pic" varStatus="status">
 								<c:choose>
-									<c:when test="${status.index == 0 }">
+									<c:when test="${status.index == 1 }">
 										<li><img data-img="1" class="img-hover"
 											alt="${product.name}" src="${pic}" width="50" height="50"></li>
 									</c:when>

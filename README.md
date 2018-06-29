@@ -12,4 +12,5 @@
 * 商品添加购物车（涉及sku联动、redis实现用户购物车管理）
 * 单点登录系统（基于redis实现Session共享）
 * 订单提交系统（利用单点登录系统实现用户登录判断）
-based on the Java development language framework：spring+springmvc+mybatis ,Design the projects.
+based on the Java development language framework：spring+springmvc+mybatis ,Design the projects.</br>
+solr+FastDFS+ActiveMQ+Redis服务搭建镜像：链接：https://pan.baidu.com/s/15W8JsLncmIogT-5NcEjZPA 密码：c6gn

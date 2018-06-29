@@ -39,7 +39,7 @@ public class ProductController{
         model.addAttribute("brandId",brandId);
         model.addAttribute("price",price);
 
-        //已选条件容器 Map
+        //已选条件容器 Map   可以去重
         Map<String,String> map=new HashMap<String, String>();
         //品牌
         if(null != brandId){

@@ -9,7 +9,7 @@
 		$.ajax({
 			url : "http://localhost:8081/isLogin.aspx",
 			type : "post",
-			dataType : "json", //这里用jsonp 通过ajax接收来自http://localhost:8081/isLogin.aspx的返回值，实现跨源（跨域）
+			dataType : "jsonp", //这里用jsonp 通过ajax接收来自http://localhost:8081/isLogin.aspx的返回值，实现跨源（跨域）
 			success : function(data){
 				//判断 0 1
 				//alert(data);
@@ -45,7 +45,8 @@ $(function(){
 })
 */
 	//去登陆页面
-	function Login(){ 							 //encodeURIComponent()对 url进行转译，否则传递中文乱码，使得参数传递出错
+	function login(){ 							 //encodeURIComponent()对 url进行转译，否则传递中文乱码，使得参数传递出错
+		alert("url:"+window.location.href+"  encode:"+ encodeURIComponent(window.location.href));
 		window.location.href = "http://localhost:8081/login.aspx?returnUrl=" + encodeURIComponent(window.location.href);
 	}
 
@@ -68,7 +69,7 @@ $(function(){
 		<ul class="fr lh">
 			<li class="fore1" id="loginbar" clstag="homepage|keycount|home2013|01b">
 				您好！欢迎来到新巴巴运动网！
-				<a href="javascript:;" onclick="Login()" id="login">[登录]</a>&nbsp;
+				<a href="javascript:;" onclick="login()" id="login">[登录]</a>&nbsp;
 				<a href="javascript:;" onclick="regist()" id="regist">[免费注册]</a>
 				<a href="javascript:;" onclick="logout() " id="logout">[退出]</a>
 				<a href="javascript:;" onclick="myOrder()" id="myOrder">我的订单</a>

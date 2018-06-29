@@ -71,7 +71,7 @@ public class SkuServiceImpl implements SkuService {
             for(BuyerItem buyerItem:items){
                 //保存到redis中 用hash容器  先判断商品是否已经存在用户redis购物车中
                 if(jedis.hexists("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()))){
-                    //已经存在直接追加就行hi  ncrBy
+                    //已经存在直接追加就行hincrBy
                     jedis.hincrBy("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()),buyerItem.getAmount());
                 }else { //redis中不存在，直接添加
                     jedis.hset("buyerCart:"+userName,String.valueOf(buyerItem.getSku().getId()),String.valueOf(buyerItem.getAmount()));
@@ -80,7 +80,7 @@ public class SkuServiceImpl implements SkuService {
         }
     }
 
-    //从Redis购物车中奖商品取出
+    //从Redis购物车中将商品取出
     public BuyerCar selectBuyerCartFromRedis(String username){
         BuyerCar buyerCar=new BuyerCar();
         Map<String, String> map = jedis.hgetAll("buyerCart:" + username);
